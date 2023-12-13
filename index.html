@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Text To Speech</h1>
+    <input type='text' name='msg' id='msg' size=7 autofocus> Number
+    <div>
+      <br><button id="speak_button">Speak</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
+    <script>
+      var Number;
+      $('#speak_button').click(function(e){
+        e.preventDefault();
+        Number = $('#msg').val();       
+        $.get('/save?Number=' + Number , function(data){
+          console.log(data);
+        });
+      });      
+    </script>
+  </body>
+</html>
